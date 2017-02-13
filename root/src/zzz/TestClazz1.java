@@ -8,4 +8,5 @@ package zzz;
  * *******************************
  */
 public class TestClazz1 {
+    // fork-added
 }

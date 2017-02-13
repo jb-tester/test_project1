@@ -6,4 +6,5 @@ package a.b.xxxxxx;
  */
 public class Foo {
     // test
+    // fork-added
 }

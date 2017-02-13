@@ -6,7 +6,8 @@ package a.b.xxxxxx;
  */
 public class Hello {
     public static void main(String[] args) {
-         // in branch
+         // test
+        // fork-added
         String arg = args[0];
         System.out.println("hello, "+ arg + "!");
     }

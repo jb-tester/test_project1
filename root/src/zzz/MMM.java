@@ -5,5 +5,5 @@ package zzz;
  */
 public class MMM {
     // test
-    
+    // fork-added
 }
