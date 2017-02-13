@@ -1,0 +1,54 @@
+in https://github.com/irina-petrovskaya/test_project1.git set the default branch to 'test'
+fork repo as jb-tester
+clone fork (https://github.com/jb-tester/test_project1) - test branch is cloned, ok
+The git config:
+=======================================
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+[remote "origin"]
+	url = https://github.com/jb-tester/test_project1
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "test"]
+	remote = origin
+	merge = refs/heads/test
+========================================
+
+Now invoke rebase fork action:
+the git config gets upstream configuration:
+==========================================
+
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+[remote "origin"]
+	url = https://github.com/jb-tester/test_project1
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "test"]
+	remote = origin
+	merge = refs/heads/test
+[remote "upstream"]
+	url = https://github.com/irina-petrovskaya/test_project1.git
+	fetch = +refs/heads/*:refs/remotes/upstream/*
+
+=============================================
+The following commands are performed (note the upstream/master using):
+=============================================
+git -c core.quotepath=false fetch upstream --progress --prune
+From https://github.com/irina-petrovskaya/test_project1
+
+ * [new branch]      master     -> upstream/master
+ * [new branch]      test       -> upstream/test
+
+18:33:22.480: [test_project1_fork] git -c core.quotepath=false stash save "Uncommitted changes before Rebasing at 2/13/2017 6:33 PM"
+18:33:24.930: [test_project1_fork] git -c core.quotepath=false rebase upstream/master
